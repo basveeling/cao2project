@@ -60,9 +60,9 @@ BEGIN
     END IF;
   END PROCESS registers;
 
-  BusA <= reg_file(reg_mapping(to_integer(unsigned(SelA))));
-  BusB <= reg_file(reg_mapping(to_integer(unsigned(SelB))));  
+  BusA <= reg_file(decoder(SelA));
+  BusB <= reg_file(decoder(SelB));  
  
-  IR  <= reg_file(37);
+  IR  <= reg_file(13);
     
 END ARCHITECTURE three_port;

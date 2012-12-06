@@ -12,7 +12,7 @@
 35
 36
 37 // INSTRUCTION REGISTER
-8
+8 //CWP = 0 verwijst hiernaar
 9
 10
 11
@@ -28,7 +28,7 @@
 21
 22
 23
-24
+24 // CWP = 16 verwijst hieranaar 
 25
 26
 27

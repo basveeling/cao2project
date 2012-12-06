@@ -115,6 +115,8 @@ BEGIN
       WHEN "1100" => ALU_outp_with_carry (31 DOWNTO 0)<=std_logic_vector(resize(signed(BusA(12 DOWNTO 0)),32));
       WHEN "1101" => ALU_outp_with_carry <= std_logic_vector(resize(signed(BusA),33)+1);
       WHEN "1110" => ALU_outp_with_carry <= std_logic_vector(resize(signed(BusA),33)+4);
+      -- INC WINDOW POINT: SLECHT IDEE, 1111 is rightshift5
+      -- WHEN "1111" => ALU_outp_with_carry <= std_logic_vector(resize(signed(BusA),33)+16);
       WHEN OTHERS => ALU_outp_with_carry (31 DOWNTO 0)<= std_logic_vector(shift_right(signed(BusA),5));
     END CASE;
   END PROCESS alu;

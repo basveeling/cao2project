@@ -40,11 +40,12 @@ PACKAGE BODY utilities IS
       RETURN index;
     ELSIF index > 31 THEN
       RETURN index - 24;
-    ELSIF index > 37
+    ELSIF index > 37 THEN
       REPORT "decoder index out of range" SEVERITY warning;
       RETURN 0; -- %r0 is read only, therefore this is a safe return value
     ELSE
-      -- RETURN INDEX MET schuifshit
+      -- TODO: reg_file op een of andere manier uit registerfile halen.
+      RETURN index + 7 + reg_file(7); --huidige index met offset + CWP(current window pointer)
     END IF;
   END decoder;
 

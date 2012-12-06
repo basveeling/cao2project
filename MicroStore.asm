@@ -7,11 +7,21 @@ ORG 1152
 10010100000000000000100101011011111111111 / Copy imm22 field to target register -> goto 2047
 / CALL
 ORG 1280
-10000001000000001111000010100000000000000 / Save %pc in %r15
+10000001000000001111000010100000000000000 / Save %pc in %r15 / Make this r31
 / next two lines are replaced, exercise 5.8
 /10010101001010100001000100000000000000000 / Shift disp30 field left
 /10000101000010100001000100000000000000000 / Shift again
 10010100000000100001000100100000000000000 / R[temp0] ,- LSHIFT(R[ir])
+/
+/ Our increment of the current window pointer
+00011100000000000111000111000000000000000   / TODO: increment current window pointer with 4
+00011100000000000111000111000000000000000  / TODO: increment current window pointer with 4
+00011100000000000111000111000000000000000   / TODO: increment current window pointer with 4
+00011100000000000111000111000000000000000   / TODO: increment current window pointer with 4
+/ TODO: Zelfde truukje bij JUMPL instructie!
+/------|-|------|-|------|-|-|-|----|---|-----------|										 
+/ amux |-| bmux |-| cmux |-|r|w| alu|cnd|    jmp    | 
+/
 / end replacement
 10000001000010100000000100011000000000000 / Jump to subroutine -> goto 0
 ORG 1600
