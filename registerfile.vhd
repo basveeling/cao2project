@@ -34,13 +34,13 @@ ENTITY registerfile IS
     SelB : IN  std_logic_vector( 5 DOWNTO 0);  
     BusC : IN  std_logic_vector(31 DOWNTO 0);
     SelC : IN  std_logic_vector( 5 DOWNTO 0);
-  IR   : OUT std_logic_vector(31 DOWNTO 0)
+    IR   : OUT std_logic_vector(31 DOWNTO 0)
   );
 END ENTITY registerfile;
 
 ARCHITECTURE three_port OF registerfile IS
 
-  TYPE reg_file_type IS ARRAY (37 DOWNTO 0) OF std_logic_vector(31 DOWNTO 0);
+  TYPE reg_file_type IS ARRAY (165 DOWNTO 0) OF std_logic_vector(31 DOWNTO 0);
   SIGNAL reg_file : reg_file_type := (OTHERS=>(OTHERS=>'0'));
   ATTRIBUTE ram_block: boolean;
   ATTRIBUTE ram_block OF reg_file: SIGNAL IS true;  
@@ -60,8 +60,8 @@ BEGIN
     END IF;
   END PROCESS registers;
 
-  BusA <= reg_file(to_integer(unsigned(SelA)));
-  BusB <= reg_file(to_integer(unsigned(SelB)));  
+  BusA <= reg_file(reg_mapping(to_integer(unsigned(SelA))));
+  BusB <= reg_file(reg_mapping(to_integer(unsigned(SelB))));  
  
   IR  <= reg_file(37);
     
