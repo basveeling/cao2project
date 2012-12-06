@@ -36,15 +36,11 @@ PACKAGE BODY utilities IS
     VARIABLE index : natural;
   BEGIN
     index := to_integer(unsigned(s));
-    IF index<8 THEN
+    IF index<38 THEN
       RETURN index;
-    ELSIF index > 31 THEN
-      RETURN index - 24;
-    ELSIF index > 37
+    ELSE
       REPORT "decoder index out of range" SEVERITY warning;
       RETURN 0; -- %r0 is read only, therefore this is a safe return value
-    ELSE
-      -- RETURN INDEX MET schuifshit
     END IF;
   END decoder;
 
