@@ -53,15 +53,15 @@ BEGIN
   BEGIN
     IF falling_edge(clk) THEN  
     reg_file(0) <= (OTHERS=>'0');  --%r0 constant zero
-      index := decoder(SelC);
+      index := decoder(SelC,reg_file(7));
       IF index>0 THEN
         reg_file(index)<= BusC;
       END IF;
     END IF;
   END PROCESS registers;
 
-  BusA <= reg_file(decoder(SelA));
-  BusB <= reg_file(decoder(SelB));  
+  BusA <= reg_file(decoder(SelA,reg_file(7)));
+  BusB <= reg_file(decoder(SelB,reg_file(7)));  
  
   IR  <= reg_file(13);
     

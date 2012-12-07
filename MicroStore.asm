@@ -7,17 +7,16 @@ ORG 1152
 10010100000000000000100101011011111111111 / Copy imm22 field to target register -> goto 2047
 / CALL
 ORG 1280
-10000001000000001111000010100000000000000 / Save %pc in %r15 / Make this r31
+10000001000000011111000010100000000000000 / Save %pc in %r31
+/------|-|------|-|------|-|-|-|----|---|-----------|										 
+/ amux |-| bmux |-| cmux |-|r|w| alu|cnd|    jmp    | 
 / next two lines are replaced, exercise 5.8
 /10010101001010100001000100000000000000000 / Shift disp30 field left
 /10000101000010100001000100000000000000000 / Shift again
 10010100000000100001000100100000000000000 / R[temp0] ,- LSHIFT(R[ir])
 /
 / Our increment of the current window pointer
-00011100000000000111000111000000000000000   / TODO: increment current window pointer with 4
-00011100000000000111000111000000000000000  / TODO: increment current window pointer with 4
-00011100000000000111000111000000000000000   / TODO: increment current window pointer with 4
-00011100000000000111000111000000000000000   / TODO: increment current window pointer with 4
+00011100000000000111000110100000000000000   / TODO: increment current window pointer with 4
 / TODO: Zelfde truukje bij JUMPL instructie!
 /------|-|------|-|------|-|-|-|----|---|-----------|										 
 / amux |-| bmux |-| cmux |-|r|w| alu|cnd|    jmp    | 
@@ -57,10 +56,17 @@ ORG 1688
 00000011000010000000100010011011111111111 / Perform SRL on register/simm13 sources -> goto 2047
 ORG	 1760
 / JMPL
-00000000000000000000000010110111011100010 / Is second source operand immediate? then goto 1762
-00000010000001100000000100011000000000000 / Perform ADD on register sources -> goto 0
+00000000000000000000000010110111011100100 / Is second source operand immediate? then goto 1764
+/ REMOVED JUMP
+00000010000001100000000100000000000000000 / Perform ADD on register sources, don't goto 0
+00000000000000100100000011100000000000000 / invert r0 to create -1 in temp4
+00011101001000000111000100011000000000000 / decrease CWP, goto -> 0
+/ immediate source
 10010100000000100001000110000000000000000 / Get sign extended simm13 field
-00000011000010100000000100011000000000000 / Perform ADD on register/simm13 sources -> goto 0
+00000011000010100000000100000000000000000 / Perform ADD on register/simm13 -> don't goto 0
+00000000000000100100000011100000000000000 / invert r0 to create -1 in temp4
+00011101001000000111000100011000000000000 / decrease CWP, goto -> 0
+/ amux |-| bmux |-| cmux |-|r|w| alu|cnd|    jmp    |
 ORG 1792
 / LD
 00000010000001100001000100010111100000010 / Compute source address, if immediate then goto 1794
