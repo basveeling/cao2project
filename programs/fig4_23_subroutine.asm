@@ -12,6 +12,10 @@
 
 ! Called routine
 add_1:	addcc %r1, %r2, %r3
+	call add_2
+	jmpl %r15+4, %r0
+
+add_2:	addcc %r1, %r2, %r3
 	jmpl %r15+4, %r0
 ! data
 	.org 40

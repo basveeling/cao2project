@@ -52,14 +52,15 @@ BEGIN
     VARIABLE index : natural;
   BEGIN
     IF falling_edge(clk) THEN  
-        IF reg_file(7) > 8 THEN
+        IF to_integer(signed(reg_file(7))) > 8 THEN
             REPORT "window pointer overflow" SEVERITY error; 
             reg_file(6) <= reg_file(6) OR "00000000000000000000000000000001";
             -- set overflow bit
-        ELSIF reg_file(7) < 0 THEN
+        ELSIF to_integer(signed(reg_file(7))) < 0 THEN
             REPORT "window pointer underflow" SEVERITY error;
             reg_file(6) <= reg_file(6) OR "00000000000000000000000000000010";
             -- set underflow bit
+        END IF;
         reg_file(0) <= (OTHERS=>'0');  --%r0 constant zero
         index := decoder(SelC,reg_file(7));
         IF index>0 THEN
