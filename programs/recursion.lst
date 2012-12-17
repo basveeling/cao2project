@@ -1,0 +1,26 @@
+(ARCTools Version 2.1.2)
+ HexLoc     DecLoc    MachWord   Label        Instruction                Comment
+                                              .org 0                     
+                                              .equ 6                     
+00000000  0000000000  b0802006                addcc %r0, 6, %r24         
+00000004  0000000004  40000002                call 2                     
+                                                                         ! na de call gaat iets mis (illegal instruction)
+                                                                         ! %r25 has the result
+00000008  0000000008  ffffffff                halt                       
+                                                                         
+0000000c  0000000012  80820000  sum:          addcc %r8, %r0, %r0        
+                                                                         ! controleer op N=0, 1 of N>1 (verondersteld is dat N >= 0)
+00000010  0000000016  02800005                be 5                       
+00000014  0000000020  b0823fff                addcc %r8, -1, %r24        
+00000018  0000000024  7ffffffd                call -3                    
+                                                                         ! %r25 has result
+0000001c  0000000028  92864008                addcc %r25, %r8, %r9       
+00000020  0000000032  81c3e004                jmpl %r15, 4, %r0          
+                                                                         
+00000024  0000000036  92800000  nzero:        addcc %r0, %r0, %r9        
+00000028  0000000040  81c3e004                jmpl %r15, 4, %r0          
+
+--- Symbol Table ---
+sum: 12
+nzero: 36
+N: 6
