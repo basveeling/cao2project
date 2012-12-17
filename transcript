@@ -1,0 +1,251 @@
+#  
+do sim.do
+# Model Technology ModelSim ALTERA vcom 10.0c Compiler 2011.09 Sep 21 2011
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package utilities
+# -- Compiling package body utilities
+# -- Loading package utilities
+# Model Technology ModelSim ALTERA vcom 10.0c Compiler 2011.09 Sep 21 2011
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package utilities
+# -- Compiling entity registerfile
+# -- Compiling architecture three_port of registerfile
+# Model Technology ModelSim ALTERA vcom 10.0c Compiler 2011.09 Sep 21 2011
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package utilities
+# -- Compiling entity datapath
+# -- Compiling architecture structure of datapath
+# Model Technology ModelSim ALTERA vcom 10.0c Compiler 2011.09 Sep 21 2011
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity microstore
+# -- Compiling architecture behaviour of microstore
+# Model Technology ModelSim ALTERA vcom 10.0c Compiler 2011.09 Sep 21 2011
+# -- Loading package STANDARD
+# -- Compiling architecture behaviour of MicroStore
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading entity microstore
+# Model Technology ModelSim ALTERA vcom 10.0c Compiler 2011.09 Sep 21 2011
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Control
+# -- Compiling architecture structure of Control
+# Model Technology ModelSim ALTERA vcom 10.0c Compiler 2011.09 Sep 21 2011
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package utilities
+# -- Compiling entity ARC
+# -- Compiling architecture structure of ARC
+# Model Technology ModelSim ALTERA vcom 10.0c Compiler 2011.09 Sep 21 2011
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package conversion_utilities
+# -- Compiling package body conversion_utilities
+# -- Loading package conversion_utilities
+# Model Technology ModelSim ALTERA vcom 10.0c Compiler 2011.09 Sep 21 2011
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package conversion_utilities
+# -- Compiling entity main_memory
+# Model Technology ModelSim ALTERA vcom 10.0c Compiler 2011.09 Sep 21 2011
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity processor_with_memory
+# -- Compiling architecture structure of processor_with_memory
+# Model Technology ModelSim ALTERA vcom 10.0c Compiler 2011.09 Sep 21 2011
+# -- Loading package STANDARD
+# -- Compiling architecture bhv of main_memory
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package conversion_utilities
+# -- Loading entity main_memory
+# vsim -voptargs=+acc work.processor_with_memory(structure) 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.processor_with_memory(structure)
+# Loading ieee.numeric_std(body)
+# Loading work.utilities(body)
+# Loading work.arc(structure)
+# Loading work.datapath(structure)
+# Loading work.registerfile(three_port)
+# Loading work.control(structure)
+# Loading work.microstore(behaviour)
+# Loading work.conversion_utilities(body)
+# Loading work.main_memory(bhv)
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by:   Hostname:   ProcessID: 4
+#           Attempting to use alternate WLF file "./wlft6b9mgi".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft6b9mgi
+add wave reg_file windows_ov windows_un
+run 30000ns
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl/ControlMemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /processor_with_memory/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /processor_with_memory/cpu/ctrl/ControlMemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /processor_with_memory/cpu/dp
+# ** Note: instruction LD
+#    Time: 350 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction LD
+#    Time: 1050 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction CALL
+#    Time: 1750 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction ADDCC
+#    Time: 2350 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction BRANCH: ba, be, bcs, bvs, bneg
+#    Time: 2850 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction CALL
+#    Time: 4450 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction ADDCC
+#    Time: 5050 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction BRANCH: ba, be, bcs, bvs, bneg
+#    Time: 5550 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction CALL
+#    Time: 7150 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction ADDCC
+#    Time: 7750 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction BRANCH: ba, be, bcs, bvs, bneg
+#    Time: 8250 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction CALL
+#    Time: 9850 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction ADDCC
+#    Time: 10450 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction BRANCH: ba, be, bcs, bvs, bneg
+#    Time: 10950 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction CALL
+#    Time: 12550 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction ADDCC
+#    Time: 13150 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction BRANCH: ba, be, bcs, bvs, bneg
+#    Time: 13650 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction CALL
+#    Time: 15250 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction ADDCC
+#    Time: 15850 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction BRANCH: ba, be, bcs, bvs, bneg
+#    Time: 16350 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction CALL
+#    Time: 17950 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction ADDCC
+#    Time: 18550 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction BRANCH: ba, be, bcs, bvs, bneg
+#    Time: 19050 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction CALL
+#    Time: 20650 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction ADDCC
+#    Time: 21250 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction BRANCH: ba, be, bcs, bvs, bneg
+#    Time: 21750 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction CALL
+#    Time: 23350 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Error: window pointer overflow
+#    Time: 23750 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 23850 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 23950 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Note: instruction ADDCC
+#    Time: 23950 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Error: window pointer overflow
+#    Time: 24050 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 24150 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 24250 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 24350 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 24450 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Note: instruction BRANCH: ba, be, bcs, bvs, bneg
+#    Time: 24450 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Error: window pointer overflow
+#    Time: 24550 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 24650 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 24750 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 24850 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 24950 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 25050 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 25150 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 25250 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 25350 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 25450 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 25550 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 25650 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 25750 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 25850 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 25950 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Note: instruction JMPL
+#    Time: 25950 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Error: window pointer overflow
+#    Time: 26050 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 26150 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 26250 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 26350 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Error: window pointer overflow
+#    Time: 26450 ns  Iteration: 0  Instance: /processor_with_memory/cpu/dp/reg_file
+# ** Note: instruction JMPL
+#    Time: 26650 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Warning: read from main memory: not aligned address (should be multiple of 4)
+#    Time: 27150 ns  Iteration: 4  Instance: /processor_with_memory/mem
+# ** Note: instruction JMPL
+#    Time: 27350 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Warning: read from main memory: not aligned address (should be multiple of 4)
+#    Time: 27850 ns  Iteration: 4  Instance: /processor_with_memory/mem
+# ** Note: instruction JMPL
+#    Time: 28050 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Warning: read from main memory: not aligned address (should be multiple of 4)
+#    Time: 28550 ns  Iteration: 4  Instance: /processor_with_memory/mem
+# ** Note: instruction JMPL
+#    Time: 28750 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Note: instruction JMPL
+#    Time: 29450 ns  Iteration: 0  Instance: /processor_with_memory/cpu/ctrl
+# ** Warning: read from main memory: not aligned address (should be multiple of 4)
+#    Time: 29950 ns  Iteration: 4  Instance: /processor_with_memory/mem

@@ -3,13 +3,13 @@
 3
 4
 5
-6
+6 // Least two sign bits are used for under-/overflow bits respectively
 7 // CURRENT WINDOW POINTER
-32
-33
-34
-35
-36
+32 // PROGRAM COUNTER
+33 // %temp0
+34 // %temp1
+35 // %temp2
+36 // %temp3 / store -1 for decreasing CWP
 37 // INSTRUCTION REGISTER
 8 //CWP = 0 verwijst hiernaar
 9
