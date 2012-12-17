@@ -1,9 +1,11 @@
+! test programma om de CWP te testen. Dit is de happy flow (e.g. zonder window overflow/underflow).
+! Berekent SUM(i) met i=0 tot N. 
   .begin
   .org 0
 N .equ 6
   addcc %r0, N, %r24
   call sum 
-! %r25 has the result
+! %r25 has the result, should be 21
   halt
 
 sum:  addcc %r8, %r0, %r0

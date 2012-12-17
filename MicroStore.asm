@@ -8,18 +8,14 @@ ORG 1152
 / CALL
 ORG 1280
 10000001000000011111000010100000000000000 / Save %pc in %r31
-/------|-|------|-|------|-|-|-|----|---|-----------|										 
-/ amux |-| bmux |-| cmux |-|r|w| alu|cnd|    jmp    | 
 / next two lines are replaced, exercise 5.8
 /10010101001010100001000100000000000000000 / Shift disp30 field left
 /10000101000010100001000100000000000000000 / Shift again
 10010100000000100001000100100000000000000 / R[temp0] ,- LSHIFT(R[ir])
 /
-/ Our increment of the current window pointer
-00011100000000000111000110100000000000000   / TODO: increment current window pointer with 4
-/ TODO: Zelfde truukje bij JUMPL instructie!
-/------|-|------|-|------|-|-|-|----|---|-----------|										 
-/ amux |-| bmux |-| cmux |-|r|w| alu|cnd|    jmp    | 
+/ increment the current window pointer with 1
+00011100000000000111000110100000000000000  
+/ TODO: verify overflow
 /
 / end replacement
 10000001000010100000000100011000000000000 / Jump to subroutine -> goto 0
@@ -56,17 +52,17 @@ ORG 1688
 00000011000010000000100010011011111111111 / Perform SRL on register/simm13 sources -> goto 2047
 ORG	 1760
 / JMPL
-00000000000000000000000010110111011100100 / Is second source operand immediate? then goto 1764
-/ REMOVED JUMP
-00000010000001100000000100000000000000000 / Perform ADD on register sources, don't goto 0
-00000000000000100100000011100000000000000 / invert r0 to create -1 in temp4
-00011101001000000111000100011000000000000 / decrease CWP, goto -> 0
+00000000000000000000000010110111011100100 / Is second source operand immediate? then goto 1764 (changed address)
+00000010000001100000000100000000000000000 / Perform ADD on register sources, don't goto 0 yet!
+00000000000000100100000011100000000000000 / invert r0 to create -1 in temp4 for decrement
+00011101001000000111000100011000000000000 / decrement CWP, goto -> 0
+/ TODO: verify underflow
 / immediate source
 10010100000000100001000110000000000000000 / Get sign extended simm13 field
 00000011000010100000000100000000000000000 / Perform ADD on register/simm13 -> don't goto 0
-00000000000000100100000011100000000000000 / invert r0 to create -1 in temp4
-00011101001000000111000100011000000000000 / decrease CWP, goto -> 0
-/ amux |-| bmux |-| cmux |-|r|w| alu|cnd|    jmp    |
+00000000000000100100000011100000000000000 / invert r0 to create -1 in temp4 for decrement
+00011101001000000111000100011000000000000 / decrement CWP, goto -> 0
+/ TODO: verify underflow
 ORG 1792
 / LD
 00000010000001100001000100010111100000010 / Compute source address, if immediate then goto 1794

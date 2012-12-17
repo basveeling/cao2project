@@ -23,7 +23,7 @@
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
-USE work.utilities.ALL;
+USE work.utilities.ALL; 
 ENTITY registerfile IS
   PORT (
     Clk : IN std_logic;
