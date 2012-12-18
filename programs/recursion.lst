@@ -1,10 +1,10 @@
 (ARCTools Version 2.1.2)
  HexLoc     DecLoc    MachWord   Label        Instruction                Comment
                                               .org 0                     
-                                              .equ 12                    
-00000000  0000000000  b080200c                addcc %r0, 12, %r24        
+                                              .equ 6                     
+00000000  0000000000  b0802006                addcc %r0, 6, %r24         
 00000004  0000000004  40000002                call 2                     
-                                                                         ! %r25 has the result
+                                                                         ! %r25 has the result, should be 21
 00000008  0000000008  ffffffff                halt                       
                                                                          
 0000000c  0000000012  80820000  sum:          addcc %r8, %r0, %r0        
@@ -22,4 +22,4 @@
 --- Symbol Table ---
 sum: 12
 nzero: 36
-N: 12
+N: 6

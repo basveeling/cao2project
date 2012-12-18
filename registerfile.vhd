@@ -34,16 +34,16 @@ ENTITY registerfile IS
     SelB : IN  std_logic_vector( 5 DOWNTO 0);  
     BusC : IN  std_logic_vector(31 DOWNTO 0);
     SelC : IN  std_logic_vector( 5 DOWNTO 0);
-    IR   : OUT std_logic_vector(31 DOWNTO 0)
+    IR   : OUT std_logic_vector(31 DOWNTO 0);
+    windows_ov : OUT std_logic;
+    windows_un : OUT std_logic
   );
 END ENTITY registerfile;
 
 ARCHITECTURE three_port OF registerfile IS
 
-  TYPE reg_file_type IS ARRAY (181 DOWNTO 0) OF std_logic_vector(31 DOWNTO 0);
+  TYPE reg_file_type IS ARRAY (165 DOWNTO 0) OF std_logic_vector(31 DOWNTO 0);
   SIGNAL reg_file : reg_file_type := (OTHERS=>(OTHERS=>'0'));
-  SIGNAL windows_ov : std_logic := '0';
-  SIGNAL windows_un : std_logic := '0';
   ATTRIBUTE ram_block: boolean;
   ATTRIBUTE ram_block OF reg_file: SIGNAL IS true;  
  
@@ -55,11 +55,11 @@ BEGIN
   BEGIN
     IF falling_edge(clk) THEN  
         IF to_integer(signed(reg_file(7))) > 8 THEN
-            REPORT "window pointer overflow" SEVERITY error; 
+            REPORT "window pointer overflow" SEVERITY failure; 
             windows_ov <= '1';
             -- set overflow bit
         ELSIF to_integer(signed(reg_file(7))) < 0 THEN
-            REPORT "window pointer underflow" SEVERITY error;
+            REPORT "window pointer underflow" SEVERITY failure;
             windows_un <= '1';
             -- set underflow bit
         END IF;

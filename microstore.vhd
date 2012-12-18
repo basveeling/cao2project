@@ -29,9 +29,9 @@ ENTITY microstore IS
         microcode : OUT std_logic_vector(40 DOWNTO 0));
 END ENTITY microstore;
 
-ARCHITECTURE behaviour OF microstore IS
+ARCHITECTURE behaviour2 OF microstore IS
   TYPE CS_type IS ARRAY (0 TO 2047) OF std_logic_vector(40 DOWNTO 0);
   CONSTANT CStore : CS_type := (OTHERS=>(OTHERS=>'0'));
 BEGIN
   microcode <= CStore(to_integer(unsigned(address)));
-END ARCHITECTURE behaviour;
+END ARCHITECTURE behaviour2;

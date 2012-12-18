@@ -1,0 +1,28 @@
+(ARCTools Version 2.1.2)
+ HexLoc     DecLoc    MachWord   Label        Instruction                Comment
+                                              .org 0                     
+00000000  0000000000  c2002028                ld [40], %r1               
+00000004  0000000004  c400202c                ld [44], %r2               
+00000008  0000000008  40000002                call 2                     
+                                                                         ! call test_ov
+0000000c  0000000012  ffffffff                halt                       
+                                                                         
+                                                                         ! This subroutine should reset the CWD to 0
+00000010  0000000016  40000001  aux:          call 1                     
+                                                                         
+                                                                         ! This should, after nine iterations set the overflow bit
+00000014  0000000020  82804002  test_ov:      addcc %r1, %r2, %r1        
+00000018  0000000024  02800003                be 3                       
+0000001c  0000000028  7ffffffe                call -2                    
+00000020  0000000032  81c3e004                jmpl %r15, 4, %r0          
+00000024  0000000036  81c3e004  einde:        jmpl %r15, 4, %r0          
+                                                                         
+00000028  0000000040  00000009  i:                                       
+0000002c  0000000044  ffffffff  d:                                       
+
+--- Symbol Table ---
+aux: 16
+i: 40
+einde: 36
+test_ov: 20
+d: 44

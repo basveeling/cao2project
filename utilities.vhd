@@ -44,7 +44,12 @@ PACKAGE BODY utilities IS
       REPORT "decoder index out of range" SEVERITY warning;
       RETURN 0; -- %r0 is read only, therefore this is a safe return value
     ELSE
-      RETURN index + 7 + to_integer((unsigned(cwp) sll 4)); --huidige index met offset + CWP(current window pointer)
+      IF signed(cwp) > -1 AND signed(cwp) < 9 THEN -- Check if cwp is more then -1 (unsigned less than 9) and less than 9 
+        RETURN index + 7 + to_integer((unsigned(cwp) sll 4)); --huidige index met offset + CWP(current window pointer)
+      ELSE
+        RETURN 0;
+      END IF;
+
     END IF;
   END decoder;
 
